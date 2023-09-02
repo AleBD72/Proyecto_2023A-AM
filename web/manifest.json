@@ -1,6 +1,6 @@
 {
-    "name": "proyecto_moviles",
-    "short_name": "proyecto_moviles",
+    "name": "login_app_proyecto",
+    "short_name": "login_app_proyecto",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

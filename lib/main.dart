@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:proyecto_moviles/blocs/blocs.dart';
-import 'package:proyecto_moviles/screens/screens.dart';
 
-void main() {
-  runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context)=>GpsBloc() )
-      ],
-      child: const MapsApp(),
-    )
+import 'package:firebase_core/firebase_core.dart';
+import 'package:login_app_proyecto/screens/signin_screen.dart';
+import 'firebase_options.dart';
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
   );
+  runApp(const MainApp());  
   
-}  
+}
 
-
-class MapsApp extends StatelessWidget {
-  
-  const MapsApp({Key? key}): super(key: key);
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Proyecto Geolocalización',
-      home: GpsAccessScreen()
+      home: SingInScreen()
     );
   }
 }
